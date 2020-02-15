@@ -1,52 +1,9 @@
-/**
- * action types
- */
+import { actionTypes } from './constants'
 
-export const actionTypes = {
-    ADD_TODO: 'ADD_TODO',
-    REMOVE_TODO: 'REMOVE_TODO',
-    TOGGLE_TODO: 'TOGGLE_TODO',
-    SET_VISIBILITY_FILTER: 'SET_VISIBILITY_FILTER'
-}
-
-/**
- * other constants
- */
-
-export const visibilityFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-
-/**
- * action creators
- */
-
-export function addToDo(text) {
-    return {
-        type: actionTypes.ADD_TODO,
-        text
-    }
-}
-
-export function removeToDo(id) {
-    return {
-        type: actionTypes.REMOVE_TODO,
-        id
-    }
-}
-
-export function toggleToDo(id) {
-    return {
-        type: actionTypes.TOGGLE_TODO,
-        id
-    }
-}
-
-export function setVisibilityFilter(filter) {
-    return {
-        type: actionTypes.SET_VISIBILITY_FILTER,
-        filter
-    }
-}
+export const addToDo = text => ({ type: actionTypes.ADD_TODO, text });
+export const editToDo = (id, text) => ({ type: actionTypes.EDIT_TODO, id, text });
+export const deleteToDo = id => ({ type: actionTypes.DELETE_TODO, id });
+export const toggleToDo = id => ({ type: actionTypes.TOGGLE_COMPLETED, id });
+export const completeAllToDos = () => ({ type: actionTypes.COMPLETE_ALL_TODOS });
+export const clearCompleted = () => ({ type: actionTypes.CLEAR_COMPLETED });
+export const setVisibilityFilter = filter => ({ type: actionTypes.SET_VISIBILITY_FILTER, filter });
